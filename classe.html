@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esercizi di Pasqua</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+
+  <a href="index.html" class="back-button">← Torna indietro</a>
+
+  <div class="page-wrapper">
+    <h1 class="class-title" id="class-title"></h1>
+    <p class="class-subtitle" id="class-subtitle"></p>
+
+    <div class="egg-hunt-area" id="egg-hunt-area"></div>
+  </div>
+
+  <!-- Overlay for exercise card -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Exercise card template -->
+  <div class="exercise-card" id="exercise-card">
+    <div class="card-header">
+      <div class="card-egg-icon"></div>
+      <div class="card-title"></div>
+      <button class="card-close">✕</button>
+    </div>
+    <div class="card-traccia"></div>
+    <div class="card-output">
+      <div class="card-output-label">Output Atteso</div>
+      <div class="card-output-content"></div>
+    </div>
+  </div>
+
+  <script src="js/particles.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/exercises.js"></script>
+</body>
+</html>
