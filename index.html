@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esercizi di Pasqua</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="page-wrapper">
+    <h1 class="main-title">Esercizi di Pasqua</h1>
+    <p class="subtitle">Scegli la tua classe e scopri gli esercizi nascosti!</p>
+
+    <div class="class-cards" id="class-cards">
+      <!-- Cards populated by JS after loading exercises.json -->
+    </div>
+  </div>
+
+  <script src="js/particles.js"></script>
+  <script>
+    const CLASS_CONFIG = [
+      { key: 'terza', label: 'TERZA', emoji: '🥚', color: '#e94560' },
+      { key: 'quarta', label: 'QUARTA', emoji: '🥚', color: '#ffc800' },
+      { key: 'quinta', label: 'QUINTA', emoji: '🥚', color: '#00d2ff' },
+    ];
+
+    async function loadHomepage() {
+      try {
+        const res = await fetch('data/exercises.json');
+        const data = await res.json();
+        const container = document.getElementById('class-cards');
+
+        CLASS_CONFIG.forEach((cls) => {
+          const count = data[cls.key] ? data[cls.key].length : 0;
+          const card = document.createElement('a');
+          card.href = `classe.html?classe=${cls.key}`;
+          card.className = 'class-card';
+          card.style.setProperty('--card-color', cls.color);
+          card.innerHTML = `
+            <span class="egg-icon">${cls.emoji}</span>
+            <div class="class-name">${cls.label}</div>
+            <div class="exercise-count">${count} eserciz${count === 1 ? 'io' : 'i'}</div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Errore caricamento esercizi:', err);
+      }
+    }
+
+    loadHomepage();
+  </script>
+</body>
+</html>
