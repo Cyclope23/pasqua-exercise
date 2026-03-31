@@ -1,0 +1,53 @@
+{
+  "terza": [
+    {
+      "titolo": "Esercizio 1 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    },
+    {
+      "titolo": "Esercizio 2 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    },
+    {
+      "titolo": "Esercizio 3 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    }
+  ],
+  "quarta": [
+    {
+      "titolo": "Esercizio 1 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    },
+    {
+      "titolo": "Esercizio 2 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    },
+    {
+      "titolo": "Esercizio 3 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    }
+  ],
+  "quinta": [
+    {
+      "titolo": "Esercizio 1 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    },
+    {
+      "titolo": "Esercizio 2 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    },
+    {
+      "titolo": "Esercizio 3 - Placeholder",
+      "traccia": "Descrizione dell'esercizio da completare.",
+      "outputAtteso": "output atteso"
+    }
+  ]
+}
