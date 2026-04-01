@@ -739,6 +739,18 @@ a {
   font-style: italic;
 }
 
+.footer-hint {
+  font-size: 0.8rem;
+  color: rgba(255, 200, 0, 0.35);
+  margin-top: 14px;
+  animation: hintPulse 3s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.65; }
+}
+
 /* ============================================
    SECRET EASTER EGG (hidden on pages)
    ============================================ */
@@ -748,8 +760,8 @@ a {
   right: 20px;
   z-index: 50;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  opacity: 0.4;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.5;
   animation: secretPeek 4s ease-in-out infinite;
 }
 
