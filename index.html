@@ -4,21 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Esercizi di Pasqua</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
   <canvas id="particles-canvas"></canvas>
 
   <div class="page-wrapper">
-    <h1 class="main-title">Esercizi di Pasqua</h1>
-    <p class="subtitle">Scegli la tua classe e scopri gli esercizi nascosti!</p>
+    <div class="easter-hero">
+      <div class="hero-eggs">🥚🐰🥚</div>
+      <h1 class="main-title">Esercizi di Pasqua</h1>
+      <p class="subtitle">Scegli la tua classe e scopri gli esercizi nascosti!</p>
+    </div>
 
     <div class="class-cards" id="class-cards">
       <!-- Cards populated by JS after loading exercises.json -->
     </div>
+
+    <div class="secret-egg" id="secret-egg-home" title="🤫">
+      <div class="secret-egg-shape">?</div>
+    </div>
+
+    <footer class="easter-footer">
+      <div class="footer-divider"></div>
+      <p class="footer-greeting">🐣 Buona Pasqua da Prof. Palma e Prof. Schiavo! 🐣</p>
+      <p class="footer-sub">Buono studio e buone vacanze!</p>
+    </footer>
   </div>
 
-  <script src="js/particles.js"></script>
+  <!-- Snake Easter Egg -->
+  <div class="overlay" id="snake-overlay"></div>
+  <div class="snake-modal" id="snake-modal">
+    <button class="modal-close" id="snake-close">✕</button>
+    <h3>🐰 Snake Pasquale 🥚</h3>
+    <p class="snake-subtitle">Usa le frecce o WASD per raccogliere le uova!</p>
+    <canvas id="snake-canvas"></canvas>
+    <div class="snake-score" id="snake-score">Uova: 0</div>
+    <button class="snake-restart" id="snake-restart" style="display:none;">🔄 Rigioca</button>
+  </div>
+
+  <script src="js/particles.js?v=4"></script>
   <script>
     const CLASS_CONFIG = [
       { key: 'terza', label: 'TERZA', emoji: '🥚', color: '#e94560' },
@@ -51,6 +75,26 @@
     }
 
     loadHomepage();
+  </script>
+  <script src="js/snake.js?v=4"></script>
+  <script>
+    document.getElementById('secret-egg-home').addEventListener('click', () => {
+      document.getElementById('snake-overlay').classList.add('visible');
+      document.getElementById('snake-modal').classList.add('visible');
+      if (window.startSnakeGame) window.startSnakeGame();
+    });
+
+    document.getElementById('snake-close').addEventListener('click', () => {
+      document.getElementById('snake-overlay').classList.remove('visible');
+      document.getElementById('snake-modal').classList.remove('visible');
+      if (window.stopSnakeGame) window.stopSnakeGame();
+    });
+
+    document.getElementById('snake-overlay').addEventListener('click', () => {
+      document.getElementById('snake-overlay').classList.remove('visible');
+      document.getElementById('snake-modal').classList.remove('visible');
+      if (window.stopSnakeGame) window.stopSnakeGame();
+    });
   </script>
 </body>
 </html>

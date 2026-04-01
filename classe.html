@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Esercizi di Pasqua</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
   <canvas id="particles-canvas"></canvas>
@@ -16,6 +16,16 @@
     <p class="class-subtitle" id="class-subtitle"></p>
 
     <div class="egg-hunt-area" id="egg-hunt-area"></div>
+
+    <div class="secret-egg" id="secret-egg-terminal" title="&#129323;" style="left: 20px; right: auto;">
+      <div class="secret-egg-shape">></div>
+    </div>
+
+    <footer class="easter-footer">
+      <div class="footer-divider"></div>
+      <p class="footer-greeting">🐣 Buona Pasqua da Prof. Palma e Prof. Schiavo! 🐣</p>
+      <p class="footer-sub">Buono studio e buone vacanze!</p>
+    </footer>
   </div>
 
   <!-- Overlay for exercise card -->
@@ -35,8 +45,53 @@
     </div>
   </div>
 
-  <script src="js/particles.js"></script>
-  <script src="js/sound.js"></script>
-  <script src="js/exercises.js"></script>
+  <!-- Terminal Easter Egg -->
+  <div class="overlay" id="terminal-overlay"></div>
+  <div class="terminal-modal" id="terminal-modal">
+    <div class="terminal-bar">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+      <span class="terminal-title">easter-terminal — bash</span>
+      <button class="terminal-close-btn" id="terminal-close">&#10005;</button>
+    </div>
+    <div class="terminal-output" id="terminal-output"></div>
+    <div class="terminal-input-line">
+      <span class="prompt-label">studente@pasqua:~$</span>
+      <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" placeholder="scrivi un comando...">
+    </div>
+  </div>
+
+  <script>
+    function copyCode(btn) {
+      const pre = btn.parentElement.querySelector('pre code');
+      const text = pre.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✅ Copiato!';
+        setTimeout(() => { btn.textContent = '📋 Copia'; }, 2000);
+      });
+    }
+  </script>
+  <script src="js/particles.js?v=4"></script>
+  <script src="js/sound.js?v=4"></script>
+  <script src="js/exercises.js?v=4"></script>
+  <script src="js/terminal.js?v=4"></script>
+  <script>
+    document.getElementById('secret-egg-terminal').addEventListener('click', () => {
+      document.getElementById('terminal-overlay').classList.add('visible');
+      document.getElementById('terminal-modal').classList.add('visible');
+      if (window.focusTerminal) window.focusTerminal();
+    });
+
+    document.getElementById('terminal-close').addEventListener('click', () => {
+      document.getElementById('terminal-overlay').classList.remove('visible');
+      document.getElementById('terminal-modal').classList.remove('visible');
+    });
+
+    document.getElementById('terminal-overlay').addEventListener('click', () => {
+      document.getElementById('terminal-overlay').classList.remove('visible');
+      document.getElementById('terminal-modal').classList.remove('visible');
+    });
+  </script>
 </body>
 </html>

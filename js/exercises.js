@@ -102,8 +102,8 @@ function openExercise(eggContainer, exercise, colorConfig, index) {
     card.querySelector('.card-egg-icon').textContent = index + 1;
     card.querySelector('.card-title').textContent = exercise.titolo;
     card.querySelector('.card-title').style.color = colorConfig.color;
-    card.querySelector('.card-traccia').textContent = exercise.traccia;
-    card.querySelector('.card-output-content').textContent = exercise.outputAtteso;
+    card.querySelector('.card-traccia').innerHTML = exercise.traccia;
+    card.querySelector('.card-output-content').innerHTML = exercise.outputAtteso;
 
     card.classList.add('visible');
     currentOpenCard = { card, overlay, eggContainer };

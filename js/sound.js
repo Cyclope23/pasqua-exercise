@@ -13,6 +13,9 @@ function getAudioContext() {
 
 function playCrackSound() {
   const ctx = getAudioContext();
+  if (ctx.state === 'suspended') {
+    ctx.resume();
+  }
   const now = ctx.currentTime;
 
   // Layer 1: Sharp click (noise burst)
