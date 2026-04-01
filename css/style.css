@@ -739,6 +739,37 @@ a {
   font-style: italic;
 }
 
+.easter-egg-definition {
+  max-width: 520px;
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  background: rgba(255, 200, 0, 0.04);
+  border: 1px solid rgba(255, 200, 0, 0.12);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.definition-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffc800;
+  margin-bottom: 8px;
+}
+
+.definition-text {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.65;
+}
+
+.definition-text strong {
+  color: rgba(255, 200, 0, 0.7);
+}
+
+.definition-text em {
+  color: rgba(0, 210, 255, 0.6);
+}
+
 .footer-hint {
   font-size: 0.8rem;
   color: rgba(255, 200, 0, 0.35);
